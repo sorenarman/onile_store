@@ -1,8 +1,7 @@
 import { createStore } from "vuex";
 
-
 export default createStore({
-  state: { 
+  state: {
     cart: [],
     products: [
       {
@@ -19,12 +18,13 @@ export default createStore({
           material: "cotton",
           fit: "regular",
           maintenance: "machine wash",
-          additional: "Some colors feature different-colored yarns for a heathered effect."
+          additional:
+            "Some colors feature different-colored yarns for a heathered effect."
         },
         images: [
-          'image-1_45748135705_o',
-          'image-1_45938448124_o',
-          'image-1_45938452444_o'
+          "image-1_45748135705_o",
+          "image-1_45938448124_o",
+          "image-1_45938452444_o"
         ]
       },
       {
@@ -44,9 +44,9 @@ export default createStore({
           additional: ""
         },
         images: [
-          'image-2_31721537487_o',
-          'image-2_45748126835_o',
-          'image-2_46663151911_o'
+          "image-2_31721537487_o",
+          "image-2_45748126835_o",
+          "image-2_46663151911_o"
         ]
       },
       {
@@ -56,7 +56,7 @@ export default createStore({
         color: "navy",
         size: {
           waist: 32,
-          length: 32,
+          length: 32
         },
         gender: "men",
         quantity: 5,
@@ -69,15 +69,14 @@ export default createStore({
           additional: ""
         },
         images: [
-          'image-3_31721541697_o',
-          'image-3_45938448074_o',
-          'image-3_45938448074_o'
-
+          "image-3_31721541697_o",
+          "image-3_45938448074_o",
+          "image-3_45938448074_o"
         ]
-      },
-    ]},
+      }
+    ]
+  },
   mutations: {},
   actions: {},
   modules: {}
 });
-

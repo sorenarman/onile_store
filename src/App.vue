@@ -2,36 +2,31 @@
   <div>
     <header>
       <button v-on:click="navigateTo('Products')">View Products</button>
-      {{cart.length}} 
+      {{ cart.length }}
       <button v-on:click="navigateTo('Cart')">View Cart</button>
     </header>
 
     <div v-if="page === 'Cart'">
-      <Cart v-on:RemoveItemFromCart="RemoveItemFromCart" :cart="cart"/>
+      <Cart v-on:RemoveItemFromCart="RemoveItemFromCart" :cart="cart" />
     </div>
 
     <div v-if="page === 'Products'">
-      <Products v-on:AddItemToCart="AddItemToCart"/>
-
+      <Products v-on:AddItemToCart="AddItemToCart" />
     </div>
   </div>
 </template>
 
 <script>
-import Products from "./components/Products.vue"
-import Cart from "./components/Cart.vue"
-
-
+import Products from "./components/Products.vue";
+import Cart from "./components/Cart.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   data: () => {
     return {
-      page: 'Products',
-      cart: [],
-
-
-    }
+      page: "Products",
+      cart: []
+    };
   },
   computed: {
     slidesLen() {
@@ -50,27 +45,24 @@ export default {
       this.page = page;
     },
     next() {
-      if(this.visibleSlide >= this.slidesLen - 1) {
+      if (this.visibleSlide >= this.slidesLen - 1) {
         this.visibleSlide = 0;
-      }else {
+      } else {
         this.visibleSlide++;
       }
     },
 
     prev() {
-      if(this.visibleSlide <= 0) {
+      if (this.visibleSlide <= 0) {
         this.visibleSlide = this.slidesLen - 1;
-      }else {
+      } else {
         this.visibleSlide--;
       }
-
-    },
+    }
   },
   components: {
     Products,
-    Cart,
-
-
+    Cart
   }
 };
 </script>
@@ -104,5 +96,4 @@ header {
   font-size: 20px;
   padding-top: 20px;
 }
-
 </style>
