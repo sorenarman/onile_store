@@ -1,36 +1,35 @@
 <template>
   <div>
     <header>
+      <h1 class ="siteName">Paraknas</h1>
       <button v-on:click="navigateTo('Products')">View Products</button>
-      {{ cart.length }}
+      {{cart.length}}
       <button v-on:click="navigateTo('Cart')">View Cart</button>
     </header>
 
     <div v-if="page === 'Cart'">
-      <Cart v-on:RemoveItemFromCart="RemoveItemFromCart" :cart="cart" />
+      <Cart v-on:RemoveItemFromCart="RemoveItemFromCart" :cart="cart"/>
     </div>
 
     <div v-if="page === 'Products'">
-      <Products v-on:AddItemToCart="AddItemToCart" />
+      <Products v-on:AddItemToCart="AddItemToCart"/>
+
     </div>
   </div>
 </template>
 
 <script>
-import Products from "./components/Products.vue";
-import Cart from "./components/Cart.vue";
+import Products from "./components/Products.vue"
+import Cart from "./components/Cart.vue"
+
 
 export default {
-  name: "App",
+  name: 'App',
   data: () => {
     return {
-      page: "Products",
-      cart: []
-    };
-  },
-  computed: {
-    slidesLen() {
-      return this.slides.length;
+      page: 'Products',
+      cart: [],
+
     }
   },
 
@@ -44,25 +43,14 @@ export default {
     navigateTo(page) {
       this.page = page;
     },
-    next() {
-      if (this.visibleSlide >= this.slidesLen - 1) {
-        this.visibleSlide = 0;
-      } else {
-        this.visibleSlide++;
-      }
-    },
+    
 
-    prev() {
-      if (this.visibleSlide <= 0) {
-        this.visibleSlide = this.slidesLen - 1;
-      } else {
-        this.visibleSlide--;
-      }
-    }
   },
   components: {
     Products,
-    Cart
+    Cart,
+
+
   }
 };
 </script>
@@ -75,6 +63,10 @@ body {
 .ProductsWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+button {
+  cursor: pointer;
 }
 </style>
 
@@ -89,11 +81,28 @@ body {
 }
 
 header {
-  height: 50px;
+  position: relative;
+  height: 120px;
   background-color: lightblue;
-  text-align: right;
   box-shadow: 2px 2px 5px #999;
+  text-align:right;
   font-size: 20px;
   padding-top: 20px;
+  bottom: 60px;
 }
+
+
+
+.siteName {
+  position: relative;
+  right:542px;
+  margin-bottom: 0;
+  top: 30px;
+}
+
+
+
+
+
+
 </style>
